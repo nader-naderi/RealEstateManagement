@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid">
+    <!-- Carousel Section -->
+    <section class="carousel-section">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/img/carousel/carousel_1.jpg" class="d-block w-100" alt="Wallpaper 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/img/carousel/carousel_2.jpg" class="d-block w-100" alt="Wallpaper 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/img/carousel/carousel_3.jpg" class="d-block w-100" alt="Wallpaper 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/img/carousel/carousel_4.jpg" class="d-block w-100" alt="Wallpaper 3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+        </div>
+        <div class="carousel-caption d-none d-md-block">
+            <h1>Welcome to Real Estates Management</h1>
+            <p>Streamline your property management tasks with our comprehensive solution.</p>
+            <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="section-title">About Us</h2>
+                <p class="section-description">Nader's Real Estates Management is dedicated to providing top-notch property management services in Khuzestan province. Our innovative web application is designed to simplify property management tasks for property owners, tenants, and administrators.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="~/img/Logo.jpg" alt="About Image" class="img-fluid rounded">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title text-center mb-4">Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="fas fa-home"></i>
+                    <h3>Property Management</h3>
+                    <p>Efficiently manage your properties, tenants, maintenance, and financials in one place.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>GIS Integration</h3>
+                    <p>Visualize properties on a map and perform spatial analysis with GIS integration.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-item">
+                    <i class="fas fa-user-lock"></i>
+                    <h3>User Authentication</h3>
+                    <p>Ensure data security with robust user authentication and authorization mechanisms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section text-center">
+        <h2>Ready to Simplify Your Property Management?</h2>
+        <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+    </section>
+</div>
