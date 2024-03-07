@@ -12,7 +12,7 @@ using RealEstateManagement.Data;
 namespace RealEstateManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240307061903_InitialCreate")]
+    [Migration("20240307101944_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -38,8 +38,8 @@ namespace RealEstateManagement.Data.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("MonthlyRent");
 
-                    b.Property<string>("PropertyId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid?>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2")
@@ -70,8 +70,8 @@ namespace RealEstateManagement.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("OfferDate");
 
-                    b.Property<string>("PropertyId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid?>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TenantId")
                         .HasColumnType("nvarchar(450)");
@@ -87,8 +87,9 @@ namespace RealEstateManagement.Data.Migrations
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Property", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -482,9 +483,8 @@ namespace RealEstateManagement.Data.Migrations
                     b.Property<DateTime>("MoveOutDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PropertyId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasIndex("PropertyId");
 

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<RealEstateManagement.Models.Entities.Property>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p class="text-center">
+                <a href="@Url.Action("Create", "Property")" class="btn btn-lg btn-primary my-4 rounded-pill shadow-sm">Create New Property</a>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("SquareFeet", "Index", new { sortOrder = ViewBag.SquareFeetSort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("City", "Index", new { sortOrder = ViewBag.CitySort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("State", "Index", new { sortOrder = ViewBag.StateSort, filter = ViewBag.Filter })</th>
+                            <!-- Add more table headers as needed -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            @foreach (var property in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => property.Title)</td>
+                                    <td>@Html.DisplayFor(modelItem => property.SquareFeet)</td>
+                                    <td>@Html.DisplayFor(modelItem => property.City)</td>
+                                    <td>@Html.DisplayFor(modelItem => property.State)</td>
+                                    <td class="d-flex w-100">
+                                        <a href="@Url.Action("Edit", new { id = property.Id })" class="btn btn-sm btn-primary my-2 px-4 text-decoration-none">Edit</a>
+                                        <a href="@Url.Action("Details", new { id = property.Id })" class="btn btn-sm btn-info my-2 px-4 text-decoration-none">Details</a>
+                                        <a href="@Url.Action("Delete", new { id = property.Id })" class="btn btn-sm btn-danger my-2 px-4 text-decoration-none">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center">No properties found</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model RealEstateManagement.Models.Entities.Property
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Details for Property ID: @Model.Id</h2>
+                    <p class="card-text"><strong>Address:</strong> @Model.Address</p>
+                    <p class="card-text"><strong>Title:</strong> @Model.Title</p>
+                    <p class="card-text"><strong>Description:</strong> @Model.Description</p>
+                    <p class="card-text"><strong>Price:</strong> $@Model.Price</p>
+                    <p class="card-text"><strong>Number of Bedrooms:</strong> @Model.NumberOfBedrooms</p>
+                    <p class="card-text"><strong>Number of Bathrooms:</strong> @Model.NumberOfBathrooms</p>
+                    <p class="card-text"><strong>Square Feet:</strong> @Model.SquareFeet</p>
+                    <p class="card-text"><strong>City:</strong> @Model.City</p>
+                    <p class="card-text"><strong>State:</strong> @Model.State</p>
+                    <p class="card-text"><strong>Country:</strong> @Model.Country</p>
+                    <p class="card-text"><strong>Postal Code:</strong> @Model.PostalCode</p>
+                    <!-- Add more property details as needed -->
+                    <a asp-action="Index" class="btn btn-lg btn-primary btn-block mt-4">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

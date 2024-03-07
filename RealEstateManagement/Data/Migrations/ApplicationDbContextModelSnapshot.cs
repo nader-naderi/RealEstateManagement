@@ -35,8 +35,8 @@ namespace RealEstateManagement.Data.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("MonthlyRent");
 
-                    b.Property<string>("PropertyId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid?>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2")
@@ -51,7 +51,7 @@ namespace RealEstateManagement.Data.Migrations
 
                     b.HasIndex("TenantId");
 
-                    b.ToTable("Leases", (string)null);
+                    b.ToTable("Leases");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Offer", b =>
@@ -67,8 +67,8 @@ namespace RealEstateManagement.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("OfferDate");
 
-                    b.Property<string>("PropertyId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid?>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TenantId")
                         .HasColumnType("nvarchar(450)");
@@ -79,13 +79,14 @@ namespace RealEstateManagement.Data.Migrations
 
                     b.HasIndex("TenantId");
 
-                    b.ToTable("Offers", (string)null);
+                    b.ToTable("Offers");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Property", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -148,7 +149,7 @@ namespace RealEstateManagement.Data.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Properties", (string)null);
+                    b.ToTable("Properties");
 
                     b.UseTptMappingStrategy();
                 });
@@ -398,7 +399,7 @@ namespace RealEstateManagement.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("CommercialProperties", (string)null);
+                    b.ToTable("CommercialProperties");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.LandProperty", b =>
@@ -409,7 +410,7 @@ namespace RealEstateManagement.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("LandProperties", (string)null);
+                    b.ToTable("LandProperties");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.ResidentialProperty", b =>
@@ -422,7 +423,7 @@ namespace RealEstateManagement.Data.Migrations
                     b.Property<int>("ResidentialType")
                         .HasColumnType("int");
 
-                    b.ToTable("ResidentialProperties", (string)null);
+                    b.ToTable("ResidentialProperties");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Agent", b =>
@@ -459,14 +460,14 @@ namespace RealEstateManagement.Data.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.ToTable("Agents", (string)null);
+                    b.ToTable("Agents");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Owner", b =>
                 {
                     b.HasBaseType("RealEstateManagement.Models.Entities.REMUser");
 
-                    b.ToTable("Owners", (string)null);
+                    b.ToTable("Owners");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Tenant", b =>
@@ -479,13 +480,12 @@ namespace RealEstateManagement.Data.Migrations
                     b.Property<DateTime>("MoveOutDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PropertyId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("PropertyId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasIndex("PropertyId");
 
-                    b.ToTable("Tenants", (string)null);
+                    b.ToTable("Tenants");
                 });
 
             modelBuilder.Entity("RealEstateManagement.Models.Entities.Lease", b =>

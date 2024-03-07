@@ -158,7 +158,7 @@ namespace RealEstateManagement.Data.Migrations
                 name: "Properties",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -193,7 +193,7 @@ namespace RealEstateManagement.Data.Migrations
                 name: "CommercialProperties",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     OfficeSpaceSquareFeet = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -211,7 +211,7 @@ namespace RealEstateManagement.Data.Migrations
                 name: "LandProperties",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LotSize = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -229,7 +229,7 @@ namespace RealEstateManagement.Data.Migrations
                 name: "ResidentialProperties",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NumberOfFloors = table.Column<int>(type: "int", nullable: false),
                     ResidentialType = table.Column<int>(type: "int", nullable: false)
                 },
@@ -251,7 +251,7 @@ namespace RealEstateManagement.Data.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     MoveInDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MoveOutDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PropertyId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    PropertyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -278,7 +278,7 @@ namespace RealEstateManagement.Data.Migrations
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MonthlyRent = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    PropertyId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    PropertyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TenantId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -303,7 +303,7 @@ namespace RealEstateManagement.Data.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OfferDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PropertyId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    PropertyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     TenantId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>

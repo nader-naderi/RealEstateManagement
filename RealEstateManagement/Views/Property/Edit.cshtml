@@ -1,0 +1,66 @@
+﻿@model RealEstateManagement.Models.ViewModels.PropertyViewModel
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Edit Property</h2>
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Title" class="font-weight-bold">Title:</label>
+                    <input asp-for="Title" class="form-control" placeholder="Enter property title" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="font-weight-bold">Description:</label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter property description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price" class="font-weight-bold">Price:</label>
+                    <input asp-for="Price" class="form-control" placeholder="Enter property price" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfBedrooms" class="font-weight-bold">NumberOfBedrooms:</label>
+                    <input asp-for="NumberOfBedrooms" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfBathrooms" class="font-weight-bold">NumberOfBathrooms:</label>
+                    <input asp-for="NumberOfBathrooms" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="SquareFeet" class="font-weight-bold">SquareFeet:</label>
+                    <input asp-for="SquareFeet" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="font-weight-bold">Address:</label>
+                    <input asp-for="Address" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="font-weight-bold">City:</label>
+                    <input asp-for="City" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="State" class="font-weight-bold">State:</label>
+                    <input asp-for="State" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country" class="font-weight-bold">Country:</label>
+                    <input asp-for="Country" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PostalCode" class="font-weight-bold">PostalCode:</label>
+                    <input asp-for="PostalCode" class="form-control" placeholder="Enter property address" />
+                </div>
+                <div class="form-group row">
+                    <label asp-for="PropertyType" class="col-md-2 col-form-label">Property Type</label>
+                    <div class="col-md-10">
+                        <select asp-for="PropertyType" asp-items="Model.PropertyTypeList" class="form-control">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                        <span asp-validation-for="PropertyType" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block mt-4">Save</button>
+            </form>
+        </div>
+    </div>
+</div>

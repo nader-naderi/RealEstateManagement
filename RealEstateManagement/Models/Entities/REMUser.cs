@@ -93,7 +93,7 @@ namespace RealEstateManagement.Models.Entities
         public DateTime MoveOutDate { get; set; }
 
         [Required]
-        public string PropertyId { get; set; }
+        public Guid PropertyId { get; set; }
 
         [ForeignKey("PropertyId")]
         public Property Property { get; set; }
@@ -151,7 +151,8 @@ namespace RealEstateManagement.Models.Entities
     [Table("Properties")]
     public class Property
     {
-        public string Id { get; set; }
+        [Key]
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(255)]
