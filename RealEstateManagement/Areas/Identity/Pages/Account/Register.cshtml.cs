@@ -80,6 +80,40 @@ namespace RealEstateManagement.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Required]
+            [MaxLength(50)]
+            public string FirstName { get; set; }
+
+            [Required]
+            [MaxLength(50)]
+            public string LastName { get; set; }
+
+            [Phone]
+            [Required]
+            [MaxLength(15)]
+            [Display(Name = "Phone number")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
+            [MaxLength(255)]
+            public string Address { get; set; }
+
+            [Required]
+            [MaxLength(100)]
+            public string City { get; set; }
+
+            [Required]
+            [MaxLength(100)]
+            public string State { get; set; }
+
+            [Required]
+            [MaxLength(15)]
+            public string ZipCode { get; set; }
+
+            [Required]
+            [MaxLength(100)]
+            public string Country { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -115,6 +149,15 @@ namespace RealEstateManagement.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
+                user.ZipCode = Input.ZipCode;
+                user.Country = Input.Country;
+                user.State = Input.State;
+                user.City = Input.City;
+                user.PhoneNumber = Input.PhoneNumber;
+                user.Address = Input.Address;
+                
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);

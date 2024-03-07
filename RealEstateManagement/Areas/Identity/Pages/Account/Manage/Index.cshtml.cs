@@ -59,6 +59,34 @@ namespace RealEstateManagement.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            [MaxLength(50)]
+            public string FirstName { get; set; }
+
+            [Required]
+            [MaxLength(50)]
+            public string LastName { get; set; }
+
+            [Required]
+            [MaxLength(255)]
+            public string Address { get; set; }
+
+            [Required]
+            [MaxLength(100)]
+            public string City { get; set; }
+
+            [Required]
+            [MaxLength(100)]
+            public string State { get; set; }
+
+            [Required]
+            [MaxLength(15)]
+            public string ZipCode { get; set; }
+
+            [Required]
+            [MaxLength(100)]
+            public string Country { get; set; }
         }
 
         private async Task LoadAsync(REMUser user)
@@ -70,6 +98,13 @@ namespace RealEstateManagement.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                City = user.City,
+                State = user.State,
+                ZipCode = user.ZipCode,
+                Country = user.Country,
                 PhoneNumber = phoneNumber
             };
         }
@@ -110,6 +145,31 @@ namespace RealEstateManagement.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+
+            if(Input.FirstName != user.FirstName)
+                user.FirstName = Input.FirstName;
+
+            if (Input.LastName != user.LastName)
+                user.LastName = Input.LastName;
+
+            if (Input.Address != user.Address)
+                user.Address = Input.Address;
+
+
+            if (Input.City!= user.City)
+                user.City = Input.City;
+
+
+            if (Input.ZipCode != user.ZipCode)
+                user.ZipCode = Input.ZipCode;
+
+
+            if (Input.Country != user.Country)
+                user.Country = Input.Country;
+
+
+            if (Input.State != user.State)
+                user.State = Input.State;
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
