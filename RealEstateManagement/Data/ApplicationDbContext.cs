@@ -18,12 +18,18 @@ namespace RealEstateManagement.Data
         public DbSet<Owner> Owners { get; set; }
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<Agent> Agents { get; set; }
+        public DbSet<Property> Properties { get; set; }
+        public DbSet<CommercialProperty> CommercialProperties { get; set; }
+        public DbSet<ResidentialProperty> ResidentialProperties { get; set; }
+        public DbSet<LandProperty> LandProperties { get; set; }
+        public DbSet<Offer> Offers { get; set; }
+        public DbSet<Lease> Leases { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(builder);
 
-            modelBuilder.Entity<REMUser>(b =>
+            builder.Entity<REMUser>(b =>
             {
                 // Each User can have many UserClaims
                 b.HasMany(e => e.Claims)
@@ -50,7 +56,7 @@ namespace RealEstateManagement.Data
                     .IsRequired();
             });
 
-            modelBuilder.Entity<REMRole>(b =>
+            builder.Entity<REMRole>(b =>
             {
                 // Each Role can have many entries in the UserRole join table
                 b.HasMany(e => e.UserRoles)
@@ -64,6 +70,10 @@ namespace RealEstateManagement.Data
                     .HasForeignKey(rc => rc.RoleId)
                     .IsRequired();
             });
+
+            builder.Entity<CommercialProperty>().HasBaseType<Property>();
+            builder.Entity<ResidentialProperty>().HasBaseType<Property>();
+            builder.Entity<LandProperty>().HasBaseType<Property>();
         }
     }
 }
