@@ -129,17 +129,22 @@ namespace RealEstateManagement.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var property = propertyService.GetPropertyById(id);
+            var property = await propertyService.GetPropertyById(id);
             return View(property);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteConfirmed")]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             await propertyService.DeleteProperty(id);
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> ShowOnMap(Guid id)
+        {
+            return View(id);
         }
     }
 }

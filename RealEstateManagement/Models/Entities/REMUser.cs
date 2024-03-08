@@ -253,4 +253,16 @@ namespace RealEstateManagement.Models.Entities
         public decimal MonthlyRent { get; set; }
     }
 
+    public class PropertyWithLocation
+    {
+        public Property Property { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+    }
+
+    public class UserLocation
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+    }
 }
