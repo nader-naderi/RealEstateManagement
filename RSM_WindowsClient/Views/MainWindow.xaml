@@ -1,0 +1,47 @@
+﻿<Window x:Class="RSM_WindowsClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSM_WindowsClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#333">
+            <TextBlock Text="Estate Management Dashboard" Foreground="White" Margin="10,0,0,0" />
+        </StackPanel>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="Estates">
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Location}" />
+                            <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Reports">
+                <!-- Insert reports-related UI elements here -->
+            </TabItem>
+            <TabItem Header="Settings">
+                <!-- Insert settings-related UI elements here -->
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,65 +1,65 @@
 ﻿@model RealEstateManagement.Models.ViewModels.PropertyViewModel
 
-<div class="container">
+<div class="container ">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-6 ">
             <h2 class="text-center mb-4">Edit Property</h2>
             <form asp-action="Edit">
                 <input type="hidden" asp-for="Id" />
-                <div class="form-group">
-                    <label asp-for="Title" class="font-weight-bold">Title:</label>
-                    <input asp-for="Title" class="form-control" placeholder="Enter property title" />
+                <div class="form-group mb-3">
+                    <label asp-for="Title" class="font-weight-bold">عنوان:</label>
+                    <input asp-for="Title" class="form-control" placeholder="عنوان ملک خود را وارد کنید" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="Description" class="font-weight-bold">Description:</label>
-                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter property description"></textarea>
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="font-weight-bold">توضیحات:</label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="توضیحات اضافی ملک را وارد کنید"></textarea>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Price" class="font-weight-bold">Price:</label>
-                    <input asp-for="Price" class="form-control" placeholder="Enter property price" />
+                <div class="form-group mb-3">
+                    <label asp-for="Price" class="font-weight-bold">قیمت:</label>
+                    <input asp-for="Price" class="form-control" placeholder="قیمت ملک خود را وارد کنید" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="NumberOfBedrooms" class="font-weight-bold">NumberOfBedrooms:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="NumberOfBedrooms" class="font-weight-bold">تعداد خواب:</label>
                     <input asp-for="NumberOfBedrooms" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="NumberOfBathrooms" class="font-weight-bold">NumberOfBathrooms:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="NumberOfBathrooms" class="font-weight-bold">تعداد سرویس های بهداشتی:</label>
                     <input asp-for="NumberOfBathrooms" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="SquareFeet" class="font-weight-bold">SquareFeet:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="SquareFeet" class="font-weight-bold">متراژ:</label>
                     <input asp-for="SquareFeet" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="Address" class="font-weight-bold">Address:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="Address" class="font-weight-bold">آدرس:</label>
                     <input asp-for="Address" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="City" class="font-weight-bold">City:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="City" class="font-weight-bold">شهر:</label>
                     <input asp-for="City" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="State" class="font-weight-bold">State:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="State" class="font-weight-bold">استان:</label>
                     <input asp-for="State" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="Country" class="font-weight-bold">Country:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="Country" class="font-weight-bold">کشور:</label>
                     <input asp-for="Country" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="PostalCode" class="font-weight-bold">PostalCode:</label>
+                <div class="form-group mb-3">
+                    <label asp-for="PostalCode" class="font-weight-bold">کد پستی:</label>
                     <input asp-for="PostalCode" class="form-control" placeholder="Enter property address" />
                 </div>
-                <div class="form-group row">
-                    <label asp-for="PropertyType" class="col-md-2 col-form-label">Property Type</label>
-                    <div class="col-md-10">
+                <div class="form-group row mb-3">
+                    <label asp-for="PropertyType" class="col-md-2 col-form-label">نوع ملک</label>
+                    <div class="col-md-10 mb-3">
                         <select asp-for="PropertyType" asp-items="Model.PropertyTypeList" class="form-control">
-                            <option selected="selected" value="">Please select</option>
+                            <option selected="selected" value="">انتخاب کنید</option>
                         </select>
                         <span asp-validation-for="PropertyType" class="text-danger"></span>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block mt-4">Save</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block mt-4">ذخیره سازی</button>
             </form>
         </div>
     </div>

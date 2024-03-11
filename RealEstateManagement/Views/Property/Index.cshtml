@@ -3,16 +3,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <p class="text-center">
-                <a href="@Url.Action("Create", "Property")" class="btn btn-lg btn-primary my-4 rounded-pill shadow-sm">Create New Property</a>
+                <a href="@Url.Action("Create", "Property")" class="btn btn-lg btn-primary my-4 rounded-pill shadow-sm">ثبت ملک جدید</a>
             </p>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>@Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSort, filter = ViewBag.Filter })</th>
-                            <th>@Html.ActionLink("SquareFeet", "Index", new { sortOrder = ViewBag.SquareFeetSort, filter = ViewBag.Filter })</th>
-                            <th>@Html.ActionLink("City", "Index", new { sortOrder = ViewBag.CitySort, filter = ViewBag.Filter })</th>
-                            <th>@Html.ActionLink("State", "Index", new { sortOrder = ViewBag.StateSort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("عنوان", "Index", new { sortOrder = ViewBag.TitleSort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("متراژ", "Index", new { sortOrder = ViewBag.SquareFeetSort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("شهر", "Index", new { sortOrder = ViewBag.CitySort, filter = ViewBag.Filter })</th>
+                            <th>@Html.ActionLink("استان", "Index", new { sortOrder = ViewBag.StateSort, filter = ViewBag.Filter })</th>
                             <!-- Add more table headers as needed -->
                         </tr>
                     </thead>
@@ -27,9 +27,9 @@
                                     <td>@Html.DisplayFor(modelItem => property.City)</td>
                                     <td>@Html.DisplayFor(modelItem => property.State)</td>
                                     <td class="d-flex w-100">
-                                        <a href="@Url.Action("Edit", new { id = property.Id })" class="btn btn-sm btn-primary my-2 px-4 text-decoration-none">Edit</a>
-                                        <a href="@Url.Action("Details", new { id = property.Id })" class="btn btn-sm btn-info my-2 px-4 text-decoration-none">Details</a>
-                                        <a href="@Url.Action("Delete", new { id = property.Id })" class="btn btn-sm btn-danger my-2 px-4 text-decoration-none">Delete</a>
+                                        <a href="@Url.Action("Edit", new { id = property.Id })" class="btn btn-sm btn-primary mx-2 my-2 px-4 text-decoration-none">تغییر</a>
+                                        <a href="@Url.Action("Details", new { id = property.Id })" class="btn btn-sm btn-info mx-2 my-2 px-4 text-decoration-none">جزئیات</a>
+                                        <a href="@Url.Action("Delete", new { id = property.Id })" class="btn btn-sm btn-danger mx-2 my-2 px-4 text-decoration-none">حذف</a>
                                     </td>
                                 </tr>
                             }
@@ -37,7 +37,7 @@
                         else
                         {
                             <tr>
-                                <td colspan="8" class="text-center">No properties found</td>
+                                <td colspan="8" class="text-center">شما ملکی ندارید</td>
                             </tr>
                         }
                     </tbody>
